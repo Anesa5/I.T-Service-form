@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Invoice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Search Invoice</h1>
+        <input type="text" id="searchInput" placeholder="Enter Invoice ID">
+        <button onclick="searchInvoice()">Search</button>
+        <div id="resultBox"></div>
+    </div>
+
+    <script>
+        function searchInvoice() {
+            const id = document.getElementById("searchInput").value;
+            const data = JSON.parse(localStorage.getItem(id));
+            let result = document.getElementById("resultBox");
+            if (data) {
+                let html = `<p><strong>Invoice ID:</strong> ${id}</p>`;
+                for (const key in data) {
+                    if (key !== "invoiceId") {
+                        html += `<p><strong>${key}:</strong> ${data[key]}</p>`;
+                    }
+                }
+                result.innerHTML = html;
+            } else {
+                result.innerHTML = `<p style='color:red;'>No invoice found for ID: ${id}</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.T Service Request</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>I.T Service Form</h1>
+        <form action="preview.html" method="get" id="serviceForm">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="text" name="address" placeholder="Address">
+            <input type="text" name="postal" placeholder="Postal Code">
+            <input type="text" name="state" placeholder="State">
+            <input type="text" name="projectName" placeholder="Project Name">
+            <textarea name="description" placeholder="Project Description"></textarea>
+            <textarea name="note" placeholder="Custom Note (Optional)"></textarea>
+            <select name="service">
+                <option value="Web Development - $500">Web Development - $500</option>
+                <option value="Mobile App - $800">Mobile App - $800</option>
+                <option value="Graphic Design - $300">Graphic Design - $300</option>
+                <option value="WordPress - $400">WordPress - $400</option>
+                <option value="Shopify - $600">Shopify - $600</option>
+            </select>
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</body>
+
+</html>

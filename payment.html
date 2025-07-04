@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+        <p>This is a mock payment page.</p>
+        <input type="text" placeholder="Card Number" required>
+        <input type="text" placeholder="Card Holder Name" required>
+        <input type="text" placeholder="Expiry date" required>
+        <input type="text" placeholder="CVC" required>
+        <button onclick="proceedToInvoice()">Pay Now</button>
+    </div>
+
+    <script>
+        function proceedToInvoice() {
+            const params = new URLSearchParams(window.location.search);
+            const invoiceId = "INV" + Math.floor(Math.random() * 100000);
+            params.set("invoiceId", invoiceId);
+            const data = Object.fromEntries(params);
+            localStorage.setItem(invoiceId, JSON.stringify(data));
+            window.location.href = "invoice.html?invoiceId=" + invoiceId;
+        }
+    </script>
+</body>
+
+</html>

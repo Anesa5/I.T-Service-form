@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Preview Your Details</h1>
+        <div id="previewBox"></div>
+        <form action="payment.html" method="get" id="forwardForm"></form>
+        <button onclick="goToPayment()">Proceed to Payment</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let previewHTML = '';
+        for (const [key, value] of urlParams.entries()) {
+            previewHTML += `<p><strong>${key}:</strong> ${value}</p>`;
+            const hiddenInput = document.createElement("input");
+            hiddenInput.type = "hidden";
+            hiddenInput.name = key;
+            hiddenInput.value = value;
+            document.getElementById("forwardForm").appendChild(hiddenInput);
+        }
+        document.getElementById("previewBox").innerHTML = previewHTML;
+        function goToPayment() {
+            document.getElementById("forwardForm").submit();
+        }
+    </script>
+</body>
+
+</html>
